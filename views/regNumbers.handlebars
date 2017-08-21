@@ -1,0 +1,23 @@
+<head>
+        <meta charset="utf-8">
+        <title>Home page</title>
+        <link rel="stylesheet" href="/css/registration_number.css">
+</head>
+
+<body>
+        <h1>Registration Number Application</h1>
+        <form class="" action="/regNumbers" method="post">
+                <label><b>Name:</b></label>
+                <input type="text" name="regNum" placeholder="Please type a reg num here" required="">
+                <input type="submit" name="numberPlate" value="ADD">
+
+        </form>
+        <ul>
+                {{#each results}}
+                        <li>{{numberPlate}}</li>
+                {{/each}}
+        </ul>
+        {{regNum}}
+        {{messages.error}}
+</body>
+
