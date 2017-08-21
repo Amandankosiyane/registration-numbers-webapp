@@ -5,7 +5,7 @@ const flash = require('express-flash');
 const session = require('express-session');
 const RegRoutes = require('./regNumbers');
 const Models = require('./models');
-const models = Models(process.env.MONGO_DB_URL || 'mongodb://localhost/registrationNumbers');
+const models = Models(process.env.MONGO_DB_URL || 'mongodb://localhost/regNumber');
 const regRoutes = RegRoutes(models);
 const app = express();
 
@@ -15,6 +15,8 @@ app.set('view engine', 'handlebars');
 
 app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
+
+app.use(express.static('public'));
 
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 * 30 }}));
 app.use(flash());
@@ -31,7 +33,7 @@ app.post('/regNumbers', regRoutes.added);
 
 
 
-const port = 3010;
+const port = 3015;
 app.listen(port, function(){
         console.log('web app started on port: ' + port);
 })

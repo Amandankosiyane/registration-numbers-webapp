@@ -5,6 +5,10 @@ module.exports = function(models) {
                         numberPlate: req.body.regNum
                 }
                 console.log(regNum);
+                if (regNum === undefined) {
+                        req.flash('error', 'Please enter the registration number!');
+                        res.render('regNumbers');
+                }
 
                 models.Plates.create({
                         numberPlate: req.body.regNum
@@ -13,19 +17,16 @@ module.exports = function(models) {
                                 return next(err)
                         }
 
-                        if (!results) {
-                                models.Plates.findOne({
-                                        numberPlate: req.body.regNum
-                                }, function(err, results) {
+                        if (results) {
+                                models.Plates.find({}, function(err, results) {
 
                                         if (err) {
                                                 return next(err)
                                         }
-                                        console.log(results);
                                         var data = {
-                                                regNumbers: results.numberPlate
+                                                regNumbers: results
                                         }
-                                        res.render('regNumbers', results)
+                                        res.render('regNumbers', data)
                                 })
                         }
                         else {
@@ -40,4 +41,3 @@ module.exports = function(models) {
                 added
         }
 }
-

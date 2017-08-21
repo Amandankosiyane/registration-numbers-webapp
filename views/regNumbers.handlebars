@@ -1,23 +1,27 @@
 <head>
         <meta charset="utf-8">
         <title>Home page</title>
-        <link rel="stylesheet" href="/css/registration_number.css">
+        <link rel="stylesheet" href="../css/registration_numbers_webapp.css">
 </head>
 
 <body>
+        <div class="container" align="center">
         <h1>Registration Number Application</h1>
+
         <form class="" action="/regNumbers" method="post">
-                <label><b>Name:</b></label>
+                <br><br>
+                <label><b>RegNumber:</b></label>
                 <input type="text" name="regNum" placeholder="Please type a reg num here" required="">
                 <input type="submit" name="numberPlate" value="ADD">
+                <br><br>
 
-        </form>
-        <ul>
-                {{#each results}}
-                        <li>{{numberPlate}}</li>
+                {{#each regNumbers}}
+                        <li class="reg">{{this.numberPlate}}</li>
                 {{/each}}
-        </ul>
-        {{regNum}}
-        {{messages.error}}
-</body>
 
+                {{messages.error}}
+                <br><br>
+        </form>
+        <!-- {{regNum}} -->
+</div>
+</body>
