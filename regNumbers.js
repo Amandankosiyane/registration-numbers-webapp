@@ -1,4 +1,16 @@
+//create a factory function that is going to return an object literal
 module.exports = function(models) {
+
+        const index = function(req, res, next) {
+        models.Plates.find({}, function(err, result) {
+                if (err) {
+                        return next(err);
+                }
+                res.render('regNumbers', {
+                        result
+                });
+        });
+}
 
         const added = function(req, res, next) {
                 var regNum = {
@@ -38,6 +50,7 @@ module.exports = function(models) {
 
 
         return {
+                index,
                 added
         }
 }

@@ -21,12 +21,11 @@ app.use(express.static('public'));
 app.use(session({ secret: 'keyboard cat', cookie: { maxAge: 60000 * 30 }}));
 app.use(flash());
 
-//regRoutes.index is for showing the added registration numbers
 app.get('/', function(req,res){
         res.redirect('/regNumbers')
 })
 
-//regRoutes.index is for adding the car registration numbers
+app.get('/regNumbers', regRoutes.index);
 app.get('/regNumbers', regRoutes.added);
 app.post('/regNumbers', regRoutes.added);
 
