@@ -7,11 +7,12 @@ background-attachment: fixed;
 .reg{
         list-style: none;
         background-color: grey;
-  border-radius: 60px;
-  width: 25%;
-  height: 60px;
+  border-radius: 20px;
+  width: 30%;
+  height: 25px;
   font-style: oblique;
-  border-style: solid;
+  border: 3px solid #000000;
+  padding: 10px;
   font-size: 25px;
   margin-bottom: 5px;
   text-transform: uppercase;
@@ -20,13 +21,21 @@ background-attachment: fixed;
 h1{
         font-size: 50px;
 }
-form{
+.application{
         background-color: slategrey;
         border-radius: 60px;
-        /*width: 35em*/
+        width: 40em
 
 }
 
 label{
         font-size: 30px;
+}
+li{
+        padding-top: 0.2em;
+        margin: 0.5em;
+        margin: auto;
+        text-align: middle;
+        box-shadow: 5px 5px 2px #ADD8E6;
+
 }

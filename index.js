@@ -28,11 +28,13 @@ app.get('/', function(req,res){
 app.get('/regNumbers', regRoutes.index);
 app.get('/regNumbers', regRoutes.added);
 app.post('/regNumbers', regRoutes.added);
+app.get('/filter', regRoutes.filterAdd);
+app.post('/filter', regRoutes.filterAdd);
 
 
 
 
-const port = 3015;
+const port = process.env.PORT || 3015;
 app.listen(port, function(){
         console.log('web app started on port: ' + port);
 })

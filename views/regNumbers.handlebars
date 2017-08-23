@@ -7,21 +7,32 @@
 <body>
         <div class="container" align="center">
         <h1>Registration Number Application</h1>
-
+<div class="application">
         <form class="" action="/regNumbers" method="post">
                 <br><br>
                 <label><b>RegNumber:</b></label>
                 <input type="text" name="regNum" placeholder="Please type a reg num here" required="">
                 <input type="submit" name="numberPlate" value="ADD">
-                <br><br>
-
-                {{#each regNumbers}}
-                        <li class="reg">{{this.numberPlate}}</li>
-                {{/each}}
-
-                {{messages.error}}
-                <br><br>
         </form>
+        <br><br>
+        <form class="" action="/filter" method="post">
+                <input type="radio" name="loc">Cape Town
+                <input type="radio" name="loc">Bellville
+                <input type="radio" name="loc">Paarl
+                <input type="radio" name="loc">Strand
+                <!-- <input type="radio" name="loc">Gauteng <br><br> -->
+                <input type="submit" name="filterRegs" value="SHOW">
+
+        </form>
+        <br><br>
+        {{#each regNumbers}}
+        <li class="reg">{{this.numberPlate}}</li>
+        {{/each}}
+
+        {{messages.error}}
+        <br><br>
+
+</div>
         <!-- {{regNum}} -->
 </div>
 </body>
