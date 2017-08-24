@@ -9,7 +9,6 @@ const models = Models(process.env.MONGO_DB_URL || 'mongodb://localhost/regNumber
 const regRoutes = RegRoutes(models);
 const app = express();
 
-
 app.engine('.handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 

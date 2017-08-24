@@ -13,6 +13,7 @@ module.exports = function(models) {
         }
 
         const added = function(req, res, next) {
+                var displayReg = "";
                 var regNum = {
                         numberPlate: req.body.regNum.toUpperCase()
                 }
@@ -35,6 +36,7 @@ module.exports = function(models) {
                                         if (err) {
                                                 return next(err)
                                         }
+
                                         var data = {
                                                 regNumbers: results
                                         }
@@ -47,24 +49,33 @@ module.exports = function(models) {
                 })
         }
 
-const filterAdd = function(req,res,next){
-var loc = req.body.loc;
-var showLoc = "";
-var regNum = {
-        numberPlate: req.body.regNum
-}
+        const filterAdd = function(req, res, next) {
+                var loc = req.body.loc;
+                console.log(loc);
+                var showLoc = "";
+                var locationData = {
+                        loc: req.body.loc
+                }
 
-if (!regNum) {
-        req.flash('error', 'Please select a location');
-        req.render('regNumbers');
-}
-models.Plate.find({}, function(err, filterResults){
-        if (err) {
-return next(err)
+                models.Plates.find({
+                        numberPlate: {
+                                '$regex' : '.*' + loc
+                        }
+                }, function(err, place) {
+                        if (err) {
+                                return next(err);
+                                console.log(err);
+                        } else {
+                                console.log(place);
+                                res.render('regNumbers', {
+                                        filter: place
+                                })
+                        }
+
+                })
+
+
         }
-})
-
-}
 
         return {
                 index,

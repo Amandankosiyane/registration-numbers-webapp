@@ -39,3 +39,16 @@ li{
         box-shadow: 5px 5px 2px #ADD8E6;
 
 }
+
+.filter{
+        list-style: none;
+        background-color: grey;
+  border-radius: 20px;
+  width: 30%;
+  height: 25px;
+  font-style: oblique;
+  border: 3px solid #000000;
+  padding: 10px;
+  font-size: 25px;
+  margin-bottom: 5px;
+}
