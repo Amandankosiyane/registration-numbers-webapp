@@ -29,6 +29,8 @@ app.get('/regNumbers', regRoutes.added);
 app.post('/regNumbers', regRoutes.added);
 app.get('/filter', regRoutes.filterAdd);
 app.post('/filter', regRoutes.filterAdd);
+app.get('/clear', regRoutes.resetRegs);
+app.post('/clear', regRoutes.resetRegs);
 
 
 

@@ -19,7 +19,12 @@ background-attachment: fixed;
 }
 
 h1{
-        font-size: 50px;
+        font-family: 'Gochi Hand', border-style: inset;
+font-size: 70px;
+font-weight: bolder;
+text-align: center;
+text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+
 }
 .application{
         background-color: slategrey;
@@ -51,4 +56,46 @@ li{
   padding: 10px;
   font-size: 25px;
   margin-bottom: 5px;
+}
+
+.show{
+        width: 5em;
+        height: 2em;
+        margin-left: 2em;
+        background-color: lightblue;
+        font-weight: bolder;
+        font-style: oblique;
+}
+
+.add{
+        width: 5em;
+        height: 2em;
+        margin-left: 1em;
+        background-color: lightblue;
+        font-weight: bolder;
+        font-style: oblique;
+}
+.clear{
+        width: 5em;
+        height: 2em;
+        margin-left: 1em;
+        background-color: lightblue;
+        font-weight: bolder;
+        font-style: oblique;
+}
+.textbox{
+        box-shadow: 2px 2px 2px #ADD8E6;
+        background-color: lightgray;
+top: -2em;
+text-align: center;
+width: 35%;
+height: 30px;
+font-size: 15px;
+border-radius: 30px;
+}
+
+h6{
+        font-size: 1.5em;
+        text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+
 }

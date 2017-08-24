@@ -7,21 +7,25 @@
 <body>
         <div class="container" align="center">
         <h1>Registration Number Application</h1>
+        <h6>This is a basic web application that allows people to enter the registration numbers. <br>The registration numbers will be stored in a database.<br>
+        People can be able to check registration  numbers for a specific town by selecting one of the locations.</h6>
 <div class="application">
         <form class="" action="/regNumbers" method="post">
                 <br><br>
                 <label><b>RegNumber:</b></label>
-                <input type="text" name="regNum" placeholder="Please type a reg num here" required="">
-                <input type="submit" name="numberPlate" value="ADD">
+                <input type="text" name="regNum" placeholder="Please type a reg num here" required="" class="textbox">
+                <input type="submit" name="numberPlate" value="ADD" class="add">
         </form>
         <br><br>
         <form class="" action="/filter" method="post">
-                <input type="radio" name="loc" value="CA">Cape Town
-                <input type="radio" name="loc" value="CY">Bellville
-                <input type="radio" name="loc" value="CJ">Paarl
-                <input type="radio" name="loc" value="CEY">Strand
-                <input type="submit" name="filterRegs" value="SHOW">
-
+                <input type="radio" name="loc" value="CA" required=""><b>Cape Town <b></b>
+                <input type="radio" name="loc" value="CY" required=""><b>Bellville <b></b>
+                <input type="radio" name="loc" value="CJ" required=""><b>Paarl <b></b>
+                <input type="radio" name="loc" value="CEY" required=""><b>Strand <b></b>
+                <input type="submit" name="filterRegs" value="SHOW" class="show">
+        </form>
+        <form class="" action="/clear" method="post">
+                <input type="submit" name="clear" value="RESET" class="clear">
         </form>
         <br><br>
         {{#each regNumbers}}
@@ -34,8 +38,4 @@
 {{showAllRegs}}
         {{messages.error}}
         <br><br>
-
-</div>
-        <!-- {{regNum}} -->
-</div>
 </body>

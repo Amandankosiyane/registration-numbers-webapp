@@ -76,10 +76,19 @@ module.exports = function(models) {
 
 
         }
+        const resetRegs = function(req,res,next){
+                models.Plates.remove({}, function(err) {
+                                        if (err) {
+                                                return next(err);
+                                        }
+                                        res.render('regNumbers');
+                                })
+        }
 
         return {
                 index,
                 added,
-                filterAdd
+                filterAdd,
+                resetRegs
         }
 }
