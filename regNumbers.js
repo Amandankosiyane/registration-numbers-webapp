@@ -17,7 +17,7 @@ module.exports = function(models) {
                 var regNum = {
                         numberPlate: req.body.regNum.toUpperCase()
                 }
-                console.log(regNum);
+                // console.log(regNum);
                 if (regNum === undefined) {
                         req.flash('error', 'Please enter the registration number!');
                         res.render('regNumbers');
@@ -64,9 +64,9 @@ module.exports = function(models) {
                 }, function(err, place) {
                         if (err) {
                                 return next(err);
-                                console.log(err);
+                                // console.log(err);
                         } else {
-                                console.log(place);
+                                // console.log(place);
                                 res.render('regNumbers', {
                                         filter: place
                                 })

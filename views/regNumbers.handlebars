@@ -22,12 +22,10 @@
                 <input type="radio" name="loc" value="CY" required=""><b>Bellville <b></b>
                 <input type="radio" name="loc" value="CJ" required=""><b>Paarl <b></b>
                 <input type="radio" name="loc" value="CEY" required=""><b>Strand <b></b>
-                <input type="submit" name="filterRegs" value="SHOW" class="show">
+                <input type="submit" name="filterRegs" value="FILTER" class="show">
                 <a type="submit"href="/clear">Reset</a>
         </form>
-        <!-- <form class="" action="/clear" method="post">
-                <input type="submit" name="clear" value="RESET" class="clear">
-        </form> -->
+
         <br><br>
         {{#each regNumbers}}
         <li class="reg">{{this.numberPlate}}</li>
