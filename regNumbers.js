@@ -5,68 +5,72 @@ module.exports = function(models) {
                 models.Plates.find({}, function(err, result) {
                         if (err) {
                                 return next(err);
+                        } else {
+                                res.render('regNumbers', {
+                                        result
+
+                                });
                         }
-                        res.render('regNumbers', {
-                                result
-                        });
                 });
         }
 
         const added = function(req, res, next) {
-                var displayReg = "";
-                var regNum = {
-                        numberPlate: req.body.regNum.toUpperCase()
-                }
-                // console.log(regNum);
-                if (regNum === undefined) {
+                var regNum = req.body.regNum.toUpperCase()
+                console.log(regNum);
+                if (!regNum) {
                         req.flash('error', 'Please enter the registration number!');
                         res.render('regNumbers');
+                } else {
+
+
+                        models.Plates.findOne({
+                                numberPlate: regNum
+                        }, function(err, results) {
+                                if (err) {
+                                        return next(err)
+                                } else
+
+                                if (results) {
+                                        req.flash("error", "Plate already exist!")
+                                        res.redirect('/');
+                                } else {
+                                        models.Plates.create({
+                                                numberPlate: regNum
+                                        }, function(err, results) {
+
+                                                if (err) {
+                                                        return next(err)
+                                                }
+
+                                                models.Plates.find({}, function(err, carReg) {
+                                                        if (err) {
+                                                                return next(err)
+                                                        }
+                                                        var data = {
+                                                                regNumbers: carReg
+                                                        }
+                                                        res.render('regNumbers', data)
+                                                })
+
+                                        })
+                                }
+                        })
                 }
-
-                models.Plates.create({
-                        numberPlate: req.body.regNum.toUpperCase()
-                }, function(err, results) {
-                        if (err) {
-                                return next(err)
-                        }
-
-                        if (results) {
-                                models.Plates.find({}, function(err, results) {
-
-                                        if (err) {
-                                                return next(err)
-                                        }
-
-                                        var data = {
-                                                regNumbers: results
-                                        }
-                                        res.render('regNumbers', data)
-                                })
-                        } else {
-                                res.render('regNumbers')
-                        }
-
-                })
         }
+
 
         const filterAdd = function(req, res, next) {
                 var loc = req.body.loc;
-                console.log(loc);
-                var showLoc = "";
-                var locationData = {
-                        loc: req.body.loc
-                }
-
                 models.Plates.find({
                         numberPlate: {
-                                '$regex' : '.*' + loc
+                                '$regex': '.*' + loc
                         }
                 }, function(err, place) {
                         if (err) {
                                 return next(err);
-                                // console.log(err);
+
                         } else {
-                                // console.log(place);
+
                                 res.render('regNumbers', {
                                         filter: place
                                 })
@@ -76,19 +80,31 @@ module.exports = function(models) {
 
 
         }
-        const resetRegs = function(req,res,next){
+        const resetRegs = function(req, res, next) {
                 models.Plates.remove({}, function(err) {
-                                        if (err) {
-                                                return next(err);
-                                        }
-                                        res.render('regNumbers');
-                                })
+                        if (err) {
+                                return next(err);
+                        }
+                        res.render('regNumbers');
+                })
+        }
+        const showRegs = function(req, res, next) {
+                models.Plates.find({}, function(err, regPlate) {
+                        if (err) {
+                                return next(err)
+                        }
+                        res.render('regNumbers', {
+                                show: regPlate
+                        })
+
+                })
         }
 
         return {
                 index,
                 added,
                 filterAdd,
-                resetRegs
+                resetRegs,
+                showRegs
         }
 }

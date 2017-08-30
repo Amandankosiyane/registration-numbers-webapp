@@ -31,6 +31,8 @@ app.get('/filter', regRoutes.filterAdd);
 app.post('/filter', regRoutes.filterAdd);
 app.get('/clear', regRoutes.resetRegs);
 app.post('/clear', regRoutes.resetRegs);
+app.get('/show', regRoutes.showRegs);
+app.post('/show', regRoutes.showRegs);
 
 
 

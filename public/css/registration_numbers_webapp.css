@@ -67,6 +67,15 @@ li{
         font-style: oblique;
 }
 
+.reset{
+        width: 5em;
+        height: 2em;
+        margin-left: 2em;
+        background-color: lightblue;
+        font-weight: bolder;
+        font-style: oblique;        
+}
+
 .add{
         width: 5em;
         height: 2em;
@@ -104,4 +113,9 @@ a{
         font-size: 30px;
         text-align: center;
         text-shadow: 1px 1px 2px black, 0 0 25px darksalmon, 0 0 5px blue;
+}
+
+.error{
+        color: red;
+        font-size: 2em;
 }

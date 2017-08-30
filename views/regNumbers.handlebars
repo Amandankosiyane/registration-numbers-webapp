@@ -13,7 +13,7 @@
         <form class="" action="/regNumbers" method="post">
                 <br><br>
                 <label><b>RegNumber:</b></label>
-                <input type="text" name="regNum" placeholder="Please type a reg num here" required="" class="textbox">
+                <input type="text" name="regNum" placeholder="Please type a reg num here"  class="textbox" pattern=".{10,10}" maxlength="10">
                 <input type="submit" name="numberPlate" value="ADD" class="add">
         </form>
         <br><br>
@@ -23,10 +23,12 @@
                 <input type="radio" name="loc" value="CJ" required=""><b>Paarl <b></b>
                 <input type="radio" name="loc" value="CEY" required=""><b>Strand <b></b>
                 <input type="submit" name="filterRegs" value="FILTER" class="show">
-                <a type="submit"href="/clear">Reset</a>
+                <a type="submit"href="/show">showAll</a>
         </form>
+<form class="" action="/clear" method="post">
+        <input type="submit" name="" value="RESET" class="reset">
+</form>
 
-        <br><br>
         {{#each regNumbers}}
         <li class="reg">{{this.numberPlate}}</li>
         {{/each}}
@@ -34,7 +36,13 @@
         {{#each filter}}
         <li class="filter">{{this.numberPlate}}</li>
 {{/each}}
-{{showAllRegs}}
+        {{#each show}}
+        <li class="filter">{{this.numberPlate}}</li>
+{{/each}}
+
+<div class="error">
         {{messages.error}}
+
+</div>
         <br><br>
 </body>
