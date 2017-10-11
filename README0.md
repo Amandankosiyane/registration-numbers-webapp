@@ -1,15 +1,20 @@
 # registration-numbers-webapp
 
 ## About
-This is a car registration numbers web application that displays the registration numbers for different towns
+My sister owns a coffee shop, so she asked me to build her a web-Application that will allow her waiters to select the days that they would like to work on.
 
-## Users are able to:
-- Add the registration numbers.
-- Filter the available registration numbers.
-- Show all the registration numbers again after filtering
-- Reset the registration numbers to zero.
+She also want to see the available waiters per day.
 
+## Waiters are able to:
+- Enter their name in the URL(the URL page will redirect them to a page where they will select the days).
+- Select 3 working days.
+Also update their working days.
 
+## Admin will be able to:
+- See available waiter per day.
+- Reset schedule for the following week.
+- See the days that have less, enough or more waiters.
+- See the background-color changes when there are enough(background-color should be green), more(background-color should be orange) and less waiters(background-color should be red).
 
 ## Let's start
 - Clone my [repository](https://github.com/Amandankosiyane/registration-numbers-webapp) from github to your machine.
@@ -40,7 +45,7 @@ npm install
 ```javascript
 
 {
-  "name": "registration-numbers-webapp",
+  "name": "waiter_webapp",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -85,12 +90,15 @@ web app started on port: 3015
 ```
 - Run the Application in the browser by typing in the localhost number:
 ```
-http://localhost:3015
+http://localhost:3016
 
 ```
-- Then you should be able to add registration numbers.
-- Filter through the available registration numbers(If it does not show anything don't freak out it's because there is no match for that town).
-- You can also be able to delete all the registration numbers
+- Then you should be able to run the application.
+- If you want to check the admin side just type in the following URL:
+```
+http://localhost:3016/admin
+
+```
 
 ## Let's run the Application on Heroku
 - I assume that you already have the following:
